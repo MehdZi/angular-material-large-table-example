@@ -1,0 +1,26 @@
+.example-container {
+  height:500px;
+  width:100%;
+  overflow-y: auto;
+}
+
+table {
+  width: inherit;
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.mat-cell, .mat-header-cell {
+  padding: 8px 8px 8px 16px;
+}
+
+.mat-paginator-sticky {
+  bottom: 0px;
+  left:0px;
+  border-top: 1px solid #e0e0e0;
+  position: sticky;
+  z-index: 10;
+}
+
