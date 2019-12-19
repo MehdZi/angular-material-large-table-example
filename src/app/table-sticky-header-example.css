@@ -1,11 +1,10 @@
-.example-container {
-  height: 500px;
-  width:100%;
-  overflow-y: auto;
+.mat-card {
+  padding: 0px;
+  margin: 8px;
 }
 
 table {
-  width: inherit;
+  width: 100%;
 }
 
 .mat-table-sticky:first-child {
@@ -20,7 +19,12 @@ table {
   bottom: 0px;
   left:0px;
   border-top: 1px solid #e0e0e0;
-  position: sticky;
   z-index: 10;
+  position: sticky;
+  
 }
 
+.mat-row:hover {
+    cursor: pointer;
+    background: #F5F5F5;
+  }

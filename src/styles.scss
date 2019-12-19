@@ -1,18 +1,191 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body {
-  font-family: Roboto, Arial, sans-serif;
-  margin: 0;
-}
-.basic-container {
-  padding: 30px;
-}
-.version-info {
-  font-size: 8pt;
-  float: right;
-}
+// Konta Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+@import '~@angular/material/theming';
 
 
-/**  Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+// Initialize Lato as Konta Typography :
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Lato, monospace',
+  $display-4:     mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3:     mat-typography-level(56px, 56px, 300, $letter-spacing: -0.02em),
+  $display-2:     mat-typography-level(45px, 48px, 300, $letter-spacing: -0.005em),
+  $display-1:     mat-typography-level(34px, 40px, 300),
+  $headline:      mat-typography-level(24px, 32px, 300),
+  $title:         mat-typography-level(20px, 32px, 400),
+  $subheading-2:  mat-typography-level(16px, 28px, 300),
+  $subheading-1:  mat-typography-level(15px, 24px, 300),
+  $body-2:        mat-typography-level(14px, 24px, 400),
+  $body-1:        mat-typography-level(14px, 20px, 300),
+  $caption:       mat-typography-level(12px, 20px, 300),
+  $button:        mat-typography-level(14px, 14px, 400),
+  $input:         mat-typography-level(16px, 1.125, 400)
+);
+
+@include mat-core($custom-typography);
+
+
+//define Konta palettes
+
+$konta-mat-purple: (
+    50 : #ece1fc,
+    100 : #d0b3f8,
+    200 : #b181f3,
+    300 : #924eee,
+    400 : #7a28eb,
+    500 : #6302e7,
+    600 : #5b02e4,
+    700 : #5101e0,
+    800 : #4701dd,
+    900 : #3501d7,
+    A100 : #fefeff,
+    A200 : #d5cbff,
+    A400 : #ab98ff,
+    A700 : #967fff,
+    contrast: (
+        50 : $black-87-opacity,
+        100 : $black-87-opacity,
+        200 : $black-87-opacity,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : $black-87-opacity,
+        A200 : $black-87-opacity,
+        A400 : $black-87-opacity,
+        A700 : $black-87-opacity,
+    )
+);
+
+$konta-mat-green: (
+  50 : #f5fce6,
+  100 : #e6f7c0,
+  200 : #d6f287,
+  300 : #c5ed69,
+  400 : #b8e844,
+  500 : #ade40f,
+  600 : #a3d200,
+  700 : #95bb00,
+  800 : #87a400,
+  900 : #717d00,
+  A100 : #fcfff9,
+  A200 : #e7ffc6,
+  A400 : #d1ff93,
+  A700 : #c6ff7a,
+  contrast: (
+      50 : $black-87-opacity,
+      100 : $black-87-opacity,
+      200 : $black-87-opacity,
+      300 : $black-87-opacity,
+      400 : $black-87-opacity,
+      500 : $black-87-opacity,
+      600 : $black-87-opacity,
+      700 : $black-87-opacity,
+      800 : $black-87-opacity,
+      900 : $black-87-opacity,
+      A100 : $black-87-opacity,
+      A200 : $black-87-opacity,
+      A400 : $black-87-opacity,
+      A700 : $black-87-opacity,
+      )
+);
+
+
+// Injecting the custom color palette
+$konta-ng-app-primary: mat-palette($konta-mat-purple);
+$konta-ng-app-accent: mat-palette($konta-mat-green);
+$konta-ng-app-warn: mat-palette($mat-red);
+
+//custom background color
+$custom-background-color: #F5F5F5;
+
+// Create the theme object (a Sass map containing all of the palettes).
+$konta-ng-app-theme: mat-light-theme($konta-ng-app-primary, $konta-ng-app-accent, $konta-ng-app-warn);
+
+//custom background mixin
+$background: map-get($konta-ng-app-theme, background);
+$background: map_merge($background, (background: $custom-background-color));
+$konta-ng-app-theme: map_merge($konta-ng-app-theme, (background: $background));
+
+@include angular-material-theme($konta-ng-app-theme);
+
+/*Styles used globaly in the app*/
+
+$primary: mat-color($konta-ng-app-primary);
+$secondary: mat-color($konta-ng-app-accent);
+$warn: mat-color($konta-ng-app-warn);
+$inactive: rgba(0, 0, 0, 0.54);
+
+/* customizing the comment panel */
+.comment-panel-width {
+  width: 100vw;
+//  padding-top:px !important;
+//  padding-bottom: 24px !important;
+  height: auto !important;
+  max-height: 90vw;
+  overflow-y: auto !important;
+}
+
+.mat-bottom-sheet-container-large, .mat-bottom-sheet-container-medium, .mat-bottom-sheet-container-xlarge {
+  /* unset maximum width */
+  max-width: unset !important;
+}
+
+.mat-bottom-sheet-container-large, .mat-bottom-sheet-container-medium, .mat-bottom-sheet-container-xlarge {
+  /* remove border radius */
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.comment-date {
+  color : $inactive;
+}
+
+.comment-content {
+  white-space: initial !important;
+}
+
+.comment-header {
+  color : $primary;
+}
+
+.comment-spacer {
+  margin-top:16px;
+  margin-bottom:16px;
+}
+
+
+/*customizing scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    //box-shadow: inset 0 0 1px grey;
+    //border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b181f3;
+    border-radius: 1px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #924eee;
+}
+
+/* Global styles*/
+
+/*html, body { height: 100%; }*/
+body { margin: 0; font-family: Lato, monospace; }

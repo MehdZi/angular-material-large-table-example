@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
 
 /**
  * @title Table with sticky header
@@ -15,9 +16,11 @@ export class TableStickyHeaderExample implements OnInit {
   dataSource = new MatTableDataSource<Invoice>(ELEMENT_DATA);;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }
 
@@ -71,7 +74,7 @@ const ELEMENT_DATA: Invoice[] = [
   {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040},
   {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040},
   {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040},
-  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040},
+  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 0, legalMonetaryTotal: 16700},
 ];
 
 
