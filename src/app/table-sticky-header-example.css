@@ -43,3 +43,22 @@
     cursor: pointer;
     background: #F5F5F5;
   }
+
+.mat-input-element:disabled {
+    color: black;
+}
+
+.filter-title {
+  color : #6302e7;
+  font-size: 16px;
+  font-weight: bold;
+  padding-right: 16px;
+}
+
+.mat-standard-chip.mat-chip-with-trailing-icon {
+  min-height: 24px !important;
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+  padding-right: 4px !important;
+  padding-left: 8px !important;
+}
