@@ -1,41 +1,58 @@
-<mat-card class="mat-elevation-z2">
+<mat-card class="mat-elevation-z3 mat-card-filters">toto</mat-card>
+
+<mat-card class="mat-elevation-z2 mat-card-table">
   <mat-card-title></mat-card-title>
   <table mat-table [dataSource]="dataSource" matSort>
 
+
+  <ng-container matColumnDef="select" sticky>
+  <th mat-header-cell *matHeaderCellDef>
+    <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()">
+    </mat-checkbox>
+  </th>
+  <td mat-cell *matCellDef="let row">
+    <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)">
+    </mat-checkbox>
+  </td>
+</ng-container>
     <!-- Supplier Column -->
-    <ng-container matColumnDef="supplier" sticky>
+    <ng-container matColumnDef="supplier">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Fournisseur </th>
-      <td mat-cell *matCellDef="let element"> {{element.supplier}} </td>
+      <td mat-cell *matCellDef="let element" (click)="testAlert()"> {{element.supplier}} </td>
     </ng-container>
 
     <!-- Invoice Number Column -->
     <ng-container matColumnDef="invoiceNumber">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> N° Facture </th>
-      <td mat-cell *matCellDef="let element"> {{element.invoiceNumber}} </td>
+      <td mat-cell *matCellDef="let element" (click)="testAlert()"> {{element.invoiceNumber}} </td>
     </ng-container>
 
     <!-- Issue Date Column -->
     <ng-container matColumnDef="issueDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.issueDate}} </td>
+      <td mat-cell *matCellDef="let element" (click)="testAlert()"> {{element.issueDate}} </td>
     </ng-container>
 
     <!-- Total Amount Column -->
     <ng-container matColumnDef="totalAmount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Total HT </th>
-      <td mat-cell *matCellDef="let element"> {{element.totalAmount}} </td>
+      <td mat-cell *matCellDef="let element" (click)="testAlert()"> {{element.totalAmount}} </td>
     </ng-container>
 
     <!-- Total Tax Column -->
     <ng-container matColumnDef="totalTax">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Total TVA </th>
-      <td mat-cell *matCellDef="let element"> {{element.totalTax}} </td>
+      <td mat-cell *matCellDef="let element" (click)="testAlert()"> {{element.totalTax}} </td>
     </ng-container>
 
     <!-- Total Tax Column -->
     <ng-container matColumnDef="legalMonetaryTotal">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Total TTC </th>
-      <td mat-cell *matCellDef="let element"> {{element.legalMonetaryTotal}} </td>
+      <td mat-cell *matCellDef="let element" (click)="testAlert()"> {{element.legalMonetaryTotal}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

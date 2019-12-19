@@ -1,6 +1,10 @@
-.mat-card {
+.mat-card-table {
   padding: 0px;
   margin: 24px;
+}
+
+.mat-card-filters {
+  border-radius: 0px;
 }
 
 .mat-table {
@@ -10,7 +14,14 @@
 }
 
 .mat-table-sticky:first-child {
+  width: 32px;
+  min-width: 32px;
   border-right: 1px solid #e0e0e0;
+
+}
+
+.mat-table-sticky:first-child:hover {
+  cursor: default;
 }
 
 .mat-cell, .mat-header-cell {
