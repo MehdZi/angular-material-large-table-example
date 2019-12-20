@@ -24,7 +24,7 @@ import {TableStickyHeaderExample} from './app/table-sticky-header-example';
   entryComponents: [TableStickyHeaderExample],
   declarations: [TableStickyHeaderExample],
   bootstrap: [TableStickyHeaderExample],
-  providers: []
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},]
 })
 export class AppModule {}
 

@@ -128,7 +128,7 @@ export class TableStickyHeaderExample implements OnInit {
 export interface Invoice {
   supplier : string;
   invoiceNumber: string;
-  issueDate: string;
+  issueDate: Date;
   totalAmount: number;
   totalTax: number;
   legalMonetaryTotal: number;
@@ -136,11 +136,11 @@ export interface Invoice {
 }
 
 const ELEMENT_DATA: Invoice[] = [
-  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
-  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
-  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
-  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
-  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: '11/04/2019', totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
+  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: new Date(2019, 4, 11), totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
+  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: new Date(2019, 4, 11), totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
+  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: new Date(2019, 4, 11), totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
+  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: new Date(2019, 4, 11), totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
+  {supplier: "supplier", invoiceNumber: 'F19-7786937', issueDate: new Date(2019, 4, 11), totalAmount : 16700, totalTax : 3340, legalMonetaryTotal: 20040, invoiceId:'ABC'},
   
 ];
 
